@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AccountFragment"
+ >
+
+    <data>
+        <variable
+            name="accountSharedViewModel"
+            type="br.google.developer.adogtme.views.AccountViewModel" />
+
+
+        <variable
+            name="fragment"
+            type="br.google.developer.adogtme.fragments.AccountFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:overScrollMode="ifContentScrolls"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <LinearLayout
+                        android:id="@+id/headerContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:paddingVertical="16dp">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:tint="@color/black"
+                            app:srcCompat="@drawable/ic_chevron_left_42dp"
+                            android:onClick="@{() -> fragment.goBack()}"
+                            />
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputFirstname"
+                        android:hint="@string/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/headerContainer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:paddingVertical="16dp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputLastname"
+                        android:hint="@string/lastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/inputFirstname"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:paddingVertical="16dp"
+                        android:layout_marginTop="32dp" />
+                    <TextView
+                        android:id="@+id/rdgTitle"
+                        android:text="@string/selectSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:layout_marginVertical="16dp"
+                        android:textColor="#333333"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        app:layout_constraintTop_toBottomOf="@+id/inputLastname"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:paddingVertical="16dp"
+                        android:layout_marginTop="32dp"
+                        />
+                    <RadioGroup
+                        android:id="@+id/rdgSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/rdgTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        >
+                    </RadioGroup>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputMail"
+                        android:hint="@string/mail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/rdgSex"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:paddingVertical="16dp"
+                        android:layout_marginTop="32dp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputPassword"
+                        android:hint="@string/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/inputMail"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:paddingVertical="16dp"
+                        android:layout_marginTop="32dp"
+                        android:inputType="textPassword"/>
+                    <TextView
+                        android:text="@string/privacity_policy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:layout_marginVertical="16dp"
+                        android:textColor="#838383"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:paddingVertical="16dp"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/scrollView"
+                app:layout_constraintStart_toStartOf="parent">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSignUp"
+                    android:text="@string/signup"
+                    android:paddingVertical="16dp"
+                    android:paddingHorizontal="32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:onClick="@{() -> fragment.handleSignUpRegistry()}"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:text="@string/go_to_login"
+                    android:paddingVertical="16dp"
+                    android:paddingHorizontal="32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSignUp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/white"
+                    android:onClick="@{() -> fragment.handleGoToSignIn()}"
+                    />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

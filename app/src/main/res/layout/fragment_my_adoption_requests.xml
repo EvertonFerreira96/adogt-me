@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MyAdoptionRequestsFragment">
+
+    <data>
+
+        <variable
+            name="adoptionRequestSharedViewModel"
+            type="br.google.developer.adogtme.views.AdoptionRequestViewModel" />
+
+        <variable
+            name="fragment"
+            type="br.google.developer.adogtme.fragments.MyAdoptionRequestsFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="ifContentScrolls">
+        <LinearLayout
+            android:id="@+id/headerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingHorizontal="24dp"
+            android:orientation="vertical">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:tint="@color/black"
+                app:srcCompat="@drawable/ic_chevron_left_42dp"
+                android:onClick="@{() -> fragment.goBack()}"
+                android:paddingVertical="12dp"
+                />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_adoption_request_card"
+            app:spanCount="2"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</layout>

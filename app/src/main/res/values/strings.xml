@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Adogt Me</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Enter">Login</string>
+    <string name="Male">Male</string>
+    <string name="Fermale">Fermale</string>
+    <string name="selectSex">Select the sex</string>
+    <string name="name">Name</string>
+    <string name="lastname">Lastname</string>
+    <string name="mail">Mail</string>
+    <string name="password">Password</string>
+    <string name="privacity_policy">By signing up, you\'re agree to our Terms and Conditions and Privacy Policy</string>
+    <string name="signup">Sign Up</string>
+    <string name="go_to_login">Joined us before? Login</string>
+    <string name="edit_data">Edit Data</string>
+    <string name="sign_in">Sign In</string>
+    <string name="join_us_sign_up">Join us? Sign Up</string>
+    <string name="logo">Adogt Me</string>
+    <string name="adopt_me">Adogt Me</string>
+    <string name="alert_needed_account">Is necessary enter in your account</string>
+    <string name="my_adoptions">My Adoptions</string>
+    <string name="logout">Sign Out</string>
+    <string name="account_not_found">Account not found</string>
+    <string name="password_not_found">Password not found</string>
+
+</resources>

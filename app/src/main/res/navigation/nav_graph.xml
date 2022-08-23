@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/petCollectionFragment">
+    <fragment
+        android:id="@+id/petCollectionFragment"
+        android:name="br.google.developer.adogtme.fragments.PetCollectionFragment"
+        android:label="fragment_pet_collection"
+        tools:layout="@layout/fragment_pet_collection" >
+        <action
+            android:id="@+id/action_petCollectionFragment_to_petDetailFragment"
+            app:destination="@id/petDetailFragment" />
+        <action
+            android:id="@+id/action_petCollectionFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_petCollectionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/petDetailFragment"
+        android:name="br.google.developer.adogtme.fragments.PetDetailFragment"
+        android:label="fragment_pet_detail"
+        tools:layout="@layout/fragment_pet_detail" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="br.google.developer.adogtme.fragments.AccountFragment"
+        android:label="AccountFragment" >
+        <action
+            android:id="@+id/action_accountFragment_to_loginInFragment"
+            app:destination="@id/loginInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAccountFragment"
+        android:name="br.google.developer.adogtme.fragments.EditAccountFragment"
+        android:label="EditAccountFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="br.google.developer.adogtme.fragments.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_editAccountFragment"
+            app:destination="@id/editAccountFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_myAdoptionRequestsFragment"
+            app:destination="@id/myAdoptionRequestsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myAdoptionRequestsFragment"
+        android:name="br.google.developer.adogtme.fragments.MyAdoptionRequestsFragment"
+        android:label="MyAdoptionRequestsFragment" >
+        <action
+            android:id="@+id/action_myAdoptionRequestsFragment_to_petDetailFragment"
+            app:destination="@id/petDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginInFragment"
+        android:name="br.google.developer.adogtme.fragments.LoginInFragment"
+        android:label="LoginInFragment" >
+        <action
+            android:id="@+id/action_loginInFragment_to_petCollectionFragment"
+            app:destination="@id/petCollectionFragment" />
+    </fragment>
+</navigation>

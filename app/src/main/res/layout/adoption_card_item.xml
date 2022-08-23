@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/item_card"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/ic_trash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="1dp"
+        android:orientation="vertical">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:scaleType="centerCrop"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_delete_42"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:tint="@color/white"
+        android:padding="24dp"/>
+    </LinearLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/item_card_image"
+        android:scaleType="centerCrop"
+        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        tools:src="@drawable/celeste"
+        app:shapeAppearanceOverlay="@style/ImageView.Card.Corner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/item_card_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        app:layout_constraintTop_toBottomOf="@+id/item_card_image"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="4dp"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        />
+    <TextView
+        android:id="@+id/item_card_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        app:layout_constraintTop_toBottomOf="@+id/item_card_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#C3C3C3"
+        android:textSize="14sp"
+        android:layout_marginLeft="4dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

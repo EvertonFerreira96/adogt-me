@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PetDetailFragment">
+
+    <data>
+
+        <variable
+            name="accountSharedViewModel"
+            type="br.google.developer.adogtme.views.AccountViewModel" />
+
+        <variable
+            name="petSharedViewModel"
+            type="br.google.developer.adogtme.views.PetViewModel" />
+
+        <variable
+            name="adoptionRequestSharedViewModel"
+            type="br.google.developer.adogtme.views.AdoptionRequestViewModel" />
+
+        <variable
+            name="fragment"
+            type="br.google.developer.adogtme.fragments.PetDetailFragment" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/banner1"
+            >
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/thumbnail"
+                android:layout_height="240dp"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:tint="@color/white"
+                app:srcCompat="@drawable/ic_chevron_left_42dp"
+                android:onClick="@{() -> fragment.goBack()}"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/pet_info"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/banner1"
+            android:orientation="vertical"
+            android:padding="16dp" >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:textSize="24sp"
+                />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:textColor="#828282"
+                android:textSize="16sp"
+                android:lineHeight="26sp"
+                android:layout_marginTop="16dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pet_attr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pet_info"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_pet_attribute_card"
+                app:spanCount="2"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/pet_attr"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:orientation="horizontal"
+    android:layout_marginTop="16dp"
+    android:paddingHorizontal="16dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="16dp"
+        >
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        app:cardCornerRadius="24dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/owner_avatar"
+            app:srcCompat="@drawable/lucas"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ImageView.Card.Radius"
+            />
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/owner_name"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        app:layout_constraintTop_toBottomOf="@id/user"
+        app:layout_constraintStart_toEndOf="@id/owner_avatar"
+        android:textColor="#8C8C8C"
+        android:textStyle="normal"
+        android:textSize="16sp"
+        android:layout_marginLeft="24dp"
+        android:layout_gravity="center_vertical"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_adopt_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adopt_me"
+        android:enabled="@{accountSharedViewModel.focusAccount.active == true}"
+        android:layout_gravity="center_vertical"
+        app:shapeAppearanceOverlay="@style/ImageView.Card.Radius"
+        android:onClick="@{() -> fragment.handleSendAdoptionRequest()}"
+        />
+    </LinearLayout>
+</LinearLayout>
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="#C8C8C8"
+        android:textStyle="normal"
+        android:textAlignment="center"
+        android:text="@string/alert_needed_account"
+        android:textSize="14dp"
+        android:paddingVertical="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+</LinearLayout>
+</layout>
