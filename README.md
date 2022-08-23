@@ -27,8 +27,11 @@
 
 <!-- ABOUT THE PROJECT -->
 
+<div align="center">
+
 [![YOUTUBE](https://img.youtube.com/vi/u4gdbJADCYM/0.jpg)](https://youtu.be/u4gdbJADCYM)
 
+</div>
 ## Sobre o Projeto
 
 O projeto surgiu de uma iniciativa da PucPR relacionado a pós graduação de Desenvolvimento de Aplicativos Móveis na ministração do professor Maicris - Desenvolvimento Nativo Android I
